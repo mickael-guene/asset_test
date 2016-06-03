@@ -1,5 +1,5 @@
 CPPFLAGS=-I.
-CFLAGS+=-fpic -mno-pic-data-is-text-relative -msingle-pic-base -mslow-flash-data
+CFLAGS+=-masset
 
 VPATH = src:src/runtime
 OBJS = obj/aes.o obj/runtime.o
