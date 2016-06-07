@@ -13,7 +13,7 @@ obj/$(LIB)_veneer.o: src/veneer.S
 	$(CC) -DIMPL=impl_$(LIB) $^ -c -o $@
 
 obj/$(LIB)AsObj.o: obj/$(LIB)Enc.elf
-	wine Tools/bin/iexe2obj.exe --prefix impl_$(LIB) $^ $@; true
+	exe2obj --prefix impl_$(LIB) $^ $@; true
 
 obj/$(LIB)Enc.elf: obj/$(LIB).elf
 	cp $^ $@
