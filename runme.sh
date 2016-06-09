@@ -12,6 +12,8 @@ SCRIPTDIR=`(cd $SCRIPTDIR ; pwd)`
 #get working directory
 TOP=`pwd`
 
+source $SCRIPTDIR/colors.sh
+
 export PATH=${TOP}/install/bin:${SCRIPTDIR}/bin:${PATH}
 
 if [ true == true ]; then
@@ -23,18 +25,18 @@ for D in `find ${SCRIPTDIR}/testsuite -maxdepth 1 -type d`; do
         status=$?
         if [ $status != 0 ]; then
             if [ -e "WILL_FAILED" ]; then
-                echo -e "\e[93m[ EXPECTED FAIL ]\e[0m"
+                echo -e "${yellow}[ EXPECTED FAIL ]${normal}"
                 TEST_EXPECTED_FAIL=$((TEST_EXPECTED_FAIL+1))
             else
-                echo -e "\e[1m\e[31m[ FAIL ]\e[0m"
+                echo -e "${bold}${red}[ FAIL ]${normal}"
                 TEST_FAIL=$((TEST_FAIL+1))
             fi
         else
             if [ -e "WILL_FAILED" ]; then
-                echo -e "\e[93m[ UNEXPECTED OK ]\e[0m"
+                echo -e "${yellow}[ UNEXPECTED OK ]${normal}"
                 TEST_UNEXPECTED_OK=$((TEST_UNEXPECTED_OK+1))
             else
-                echo -e "\e[32m[ OK ]\e[0m"
+                echo -e "${green}[ OK ]${normal}"
                 TEST_OK=$((TEST_OK+1))
             fi
         fi
@@ -46,10 +48,10 @@ fi
 TEST_NB=$((TEST_EXPECTED_FAIL+TEST_FAIL+TEST_UNEXPECTED_OK+TEST_OK))
 printf "\nTEST RESULT SUMMARY\n"
 printf "###################\n"
-printf "%-57s \e[1m\e[31m[%3d / %2d]\e[0m\n" "FAIL" $TEST_FAIL $TEST_NB
-printf "%-57s \e[93m[%3d / %2d]\e[0m\n" "EXPECTED FAIL" $TEST_EXPECTED_FAIL $TEST_NB
-printf "%-57s \e[93m[%3d / %2d]\e[0m\n" "UNEXPECTED OK" $TEST_UNEXPECTED_OK $TEST_NB
-printf "%-57s \e[32m[%3d / %2d]\e[0m\n" "OK" $TEST_OK $TEST_NB
+printf "%-57s ${bold}${red}[%3d / %2d]${normal}\n" "FAIL" $TEST_FAIL $TEST_NB
+printf "%-57s ${yellow}[%3d / %2d]${normal}\n" "EXPECTED FAIL" $TEST_EXPECTED_FAIL $TEST_NB
+printf "%-57s ${yellow}[%3d / %2d]${normal}\n" "UNEXPECTED OK" $TEST_UNEXPECTED_OK $TEST_NB
+printf "%-57s ${green}[%3d / %2d]${normal}\n" "OK" $TEST_OK $TEST_NB
 
 
 END=$(date +%s.%N)
