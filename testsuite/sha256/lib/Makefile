@@ -19,7 +19,7 @@ obj/$(LIB)Enc.elf: obj/$(LIB).elf
 	cp $^ $@
 
 obj/$(LIB).elf: $(OBJS)
-	$(LD) $^ -o $@ -e 0x8000 --script=link.ld
+	$(CC) $(CFLAGS) $^ -o $@
 
 obj/%.o: %.c
 	$(CC) $^ $(CPPFLAGS) $(CFLAGS) -c -o $@

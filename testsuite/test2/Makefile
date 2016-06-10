@@ -1,5 +1,4 @@
 export CC=arm-none-eabi-gcc
-export LD=arm-none-eabi-ld
 export AR=arm-none-eabi-ar
 export LIB = test
 
