@@ -129,7 +129,7 @@ static void _hash(sha256_context *ctx)
 } /* _hash */
 
 /* -------------------------------------------------------------------------- */
-void sha256_init(sha256_context ctx[1])
+__root void sha256_init(sha256_context ctx[1])
 {
     ctx->len[0] = ctx->len[1] = 0;
     ctx->hash[0] = 0x6a09e667; ctx->hash[1] = 0xbb67ae85;
@@ -140,7 +140,7 @@ void sha256_init(sha256_context ctx[1])
 } /* sha256_init */
 
 /* -------------------------------------------------------------------------- */
-void sha256_hash(sha256_context *ctx, uint8_t *dat, uint32_t sz)
+__root void sha256_hash(sha256_context *ctx, uint8_t *dat, uint32_t sz)
 {
     register uint32_t i = ctx->len[0] & 63, l, j;
 
@@ -157,7 +157,7 @@ void sha256_hash(sha256_context *ctx, uint8_t *dat, uint32_t sz)
 } /* _hash */
 
 /* -------------------------------------------------------------------------- */
-void sha256_done(sha256_context *ctx, uint8_t *buf)
+__root void sha256_done(sha256_context *ctx, uint8_t *buf)
 {
     uint32_t i = (uint32_t)(ctx->len[0] & 63), j = ((~i) & 3) << 3;
 

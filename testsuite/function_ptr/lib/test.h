@@ -7,8 +7,6 @@
 extern "C" {
 #endif 	
 
-#define __root
-
 #define KEY_VALUE_0         0x6a3546a4
 #define KEY_VALUE_1         0x9b63edc0
 

@@ -7,8 +7,6 @@
 extern "C" {
 #endif 	
 
-#define __root
-
 #define NB                  4
 
 int get_global_const_test1_bss(void);

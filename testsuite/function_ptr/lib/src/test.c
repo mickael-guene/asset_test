@@ -7,7 +7,7 @@ static int return_key_0()
     return KEY_VALUE_0;
 }
 
-get_key_cb get_key_fct(enum key_idx idx)
+__root get_key_cb get_key_fct(enum key_idx idx)
 {
     switch(idx) {
         case KEY_IDX_0:

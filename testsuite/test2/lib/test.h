@@ -7,8 +7,6 @@
 extern "C" {
 #endif 	
 
-#define __root
-
 #define TEST1_BSS               0x733939d5
 #define TEST1_INIT              0xed23168d
 #define CONST_TEST1_INIT        0x02beaacb
@@ -27,7 +25,6 @@ int get_global_test2_bss(void);
 int get_global_test2_init(void);
 int get_global_const_test2_bss(void);
 int get_global_const_test2_init(void);
-
 
 #ifdef __cplusplus
 };

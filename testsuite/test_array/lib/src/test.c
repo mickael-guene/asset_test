@@ -12,7 +12,7 @@ int init_array[NB] = {INIT_BASE_VALUE, INIT_BASE_VALUE + 1, INIT_BASE_VALUE + 2,
 const int const_array[NB] = {CONST_BASE_VALUE, CONST_BASE_VALUE + 1, CONST_BASE_VALUE + 2, CONST_BASE_VALUE+ 3};
 const int const_bss_array[NB] = {0};
 
-void call_me_first_to_setup_bss_value()
+__root void call_me_first_to_setup_bss_value()
 {
     int i;
 
@@ -22,42 +22,42 @@ void call_me_first_to_setup_bss_value()
     }
 }
 
-int get_static_bss_elt(int idx)
+__root int get_static_bss_elt(int idx)
 {
     return static_bss_array[idx];
 }
 
-int get_static_init_elt(int idx)
+__root int get_static_init_elt(int idx)
 {
     return static_init_array[idx];
 }
 
-int get_static_const_bss_elt(int idx)
+__root int get_static_const_bss_elt(int idx)
 {
     return static_const_bss_array[idx];
 }
 
-int get_static_const_elt(int idx)
+__root int get_static_const_elt(int idx)
 {
     return static_const_array[idx];
 }
 
-int get_bss_elt(int idx)
+__root int get_bss_elt(int idx)
 {
     return bss_array[idx];
 }
 
-int get_init_elt(int idx)
+__root int get_init_elt(int idx)
 {
     return init_array[idx];
 }
 
-int get_const_elt(int idx)
+__root int get_const_elt(int idx)
 {
     return const_array[idx];
 }
 
-int get_const_bss_elt(int idx)
+__root int get_const_bss_elt(int idx)
 {
     return const_bss_array[idx];
 }

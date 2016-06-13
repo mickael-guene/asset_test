@@ -7,8 +7,6 @@
 extern "C" {
 #endif 	
 
-#define __root
-
 #define TEST_STATIC_INT_BSS_VALUE           0x40baa114
 #define TEST_GLOBAL_INT_BSS_VALUE           0x16f1b9f2
 #define TEST_STATIC_INT_INIT_VALUE          0x0f9f9b56

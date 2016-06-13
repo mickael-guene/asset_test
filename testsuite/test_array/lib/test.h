@@ -7,8 +7,6 @@
 extern "C" {
 #endif 	
 
-#define __root
-
 #define NB          4
 
 #define STATIC_BSS_BASE_VALUE                   0x6f360ba0

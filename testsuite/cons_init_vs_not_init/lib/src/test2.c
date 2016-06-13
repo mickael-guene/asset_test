@@ -3,7 +3,7 @@
 
 const int global_const_test2_bss;
 
-int get_global_const_test1_bss()
+__root int get_global_const_test1_bss()
 {
     return global_const_test1_bss;
 }

@@ -3152,7 +3152,7 @@ FRESULT validate (	/* Returns FR_OK or FR_INVALID_OBJECT */
 /* Mount/Unmount a Logical Drive                                         */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_mount (
+__root FRESULT f_mount (
 	FATFS* fs,			/* Pointer to the file system object (NULL:unmount)*/
 	const TCHAR* path,	/* Logical drive number to be mounted/unmounted */
 	BYTE opt			/* Mode option 0:Do not mount (delayed mount), 1:Mount immediately */
@@ -3199,7 +3199,7 @@ FRESULT f_mount (
 /* Open or Create a File                                                 */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_open (
+__root FRESULT f_open (
 	FIL* fp,			/* Pointer to the blank file object */
 	const TCHAR* path,	/* Pointer to the file name */
 	BYTE mode			/* Access mode and file open mode flags */
@@ -3372,7 +3372,7 @@ FRESULT f_open (
 /* Read File                                                             */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_read (
+__root FRESULT f_read (
 	FIL* fp, 	/* Pointer to the file object */
 	void* buff,	/* Pointer to data buffer */
 	UINT btr,	/* Number of bytes to read */
@@ -3480,7 +3480,7 @@ FRESULT f_read (
 /* Write File                                                            */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_write (
+__root FRESULT f_write (
 	FIL* fp,			/* Pointer to the file object */
 	const void* buff,	/* Pointer to the data to be written */
 	UINT btw,			/* Number of bytes to write */
@@ -3611,7 +3611,7 @@ FRESULT f_write (
 /* Synchronize the File                                                  */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_sync (
+__root FRESULT f_sync (
 	FIL* fp		/* Pointer to the file object */
 )
 {
@@ -3691,7 +3691,7 @@ FRESULT f_sync (
 /* Close File                                                            */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_close (
+__root FRESULT f_close (
 	FIL* fp		/* Pointer to the file object to be closed */
 )
 {
@@ -3729,7 +3729,7 @@ FRESULT f_close (
 
 #if _FS_RPATH >= 1
 #if _VOLUMES >= 2
-FRESULT f_chdrive (
+__root FRESULT f_chdrive (
 	const TCHAR* path		/* Drive number */
 )
 {
@@ -3746,7 +3746,7 @@ FRESULT f_chdrive (
 #endif
 
 
-FRESULT f_chdir (
+__root FRESULT f_chdir (
 	const TCHAR* path	/* Pointer to the directory path */
 )
 {
@@ -3798,7 +3798,7 @@ FRESULT f_chdir (
 
 
 #if _FS_RPATH >= 2
-FRESULT f_getcwd (
+__root FRESULT f_getcwd (
 	TCHAR* buff,	/* Pointer to the directory path */
 	UINT len		/* Size of path */
 )
@@ -3877,7 +3877,7 @@ FRESULT f_getcwd (
 /* Seek File R/W Pointer                                                 */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_lseek (
+__root FRESULT f_lseek (
 	FIL* fp,		/* Pointer to the file object */
 	FSIZE_t ofs		/* File pointer from top of file */
 )
@@ -4038,7 +4038,7 @@ FRESULT f_lseek (
 /* Create a Directory Object                                             */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_opendir (
+__root FRESULT f_opendir (
 	DIR* dp,			/* Pointer to directory object to create */
 	const TCHAR* path	/* Pointer to the directory path */
 )
@@ -4108,7 +4108,7 @@ FRESULT f_opendir (
 /* Close Directory                                                       */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_closedir (
+__root FRESULT f_closedir (
 	DIR *dp		/* Pointer to the directory object to be closed */
 )
 {
@@ -4141,7 +4141,7 @@ FRESULT f_closedir (
 /* Read Directory Entries in Sequence                                    */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_readdir (
+__root FRESULT f_readdir (
 	DIR* dp,			/* Pointer to the open directory object */
 	FILINFO* fno		/* Pointer to file information to return */
 )
@@ -4177,7 +4177,7 @@ FRESULT f_readdir (
 /* Find Next File                                                        */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_findnext (
+__root FRESULT f_findnext (
 	DIR* dp,		/* Pointer to the open directory object */
 	FILINFO* fno	/* Pointer to the file information structure */
 )
@@ -4202,7 +4202,7 @@ FRESULT f_findnext (
 /* Find First File                                                       */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_findfirst (
+__root FRESULT f_findfirst (
 	DIR* dp,				/* Pointer to the blank directory object */
 	FILINFO* fno,			/* Pointer to the file information structure */
 	const TCHAR* path,		/* Pointer to the directory to open */
@@ -4229,7 +4229,7 @@ FRESULT f_findfirst (
 /* Get File Status                                                       */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_stat (
+__root FRESULT f_stat (
 	const TCHAR* path,	/* Pointer to the file path */
 	FILINFO* fno		/* Pointer to file information to return */
 )
@@ -4264,7 +4264,7 @@ FRESULT f_stat (
 /* Get Number of Free Clusters                                           */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_getfree (
+__root FRESULT f_getfree (
 	const TCHAR* path,	/* Path name of the logical drive number */
 	DWORD* nclst,		/* Pointer to a variable to return number of free clusters */
 	FATFS** fatfs		/* Pointer to return pointer to corresponding file system object */
@@ -4351,7 +4351,7 @@ FRESULT f_getfree (
 /* Truncate File                                                         */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_truncate (
+__root FRESULT f_truncate (
 	FIL* fp		/* Pointer to the file object */
 )
 {
@@ -4401,7 +4401,7 @@ FRESULT f_truncate (
 /* Delete a File/Directory                                               */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_unlink (
+__root FRESULT f_unlink (
 	const TCHAR* path		/* Pointer to the file or directory path */
 )
 {
@@ -4496,7 +4496,7 @@ FRESULT f_unlink (
 /* Create a Directory                                                    */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_mkdir (
+__root FRESULT f_mkdir (
 	const TCHAR* path		/* Pointer to the directory path */
 )
 {
@@ -4590,7 +4590,7 @@ FRESULT f_mkdir (
 /* Rename a File/Directory                                               */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_rename (
+__root FRESULT f_rename (
 	const TCHAR* path_old,	/* Pointer to the object name to be renamed */
 	const TCHAR* path_new	/* Pointer to the new name */
 )
@@ -4694,7 +4694,7 @@ FRESULT f_rename (
 /* Change Attribute                                                      */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_chmod (
+__root FRESULT f_chmod (
 	const TCHAR* path,	/* Pointer to the file path */
 	BYTE attr,			/* Attribute bits */
 	BYTE mask			/* Attribute mask to change */
@@ -4739,7 +4739,7 @@ FRESULT f_chmod (
 /* Change Timestamp                                                      */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_utime (
+__root FRESULT f_utime (
 	const TCHAR* path,	/* Pointer to the file/directory name */
 	const FILINFO* fno	/* Pointer to the time stamp to be set */
 )
@@ -4786,7 +4786,7 @@ FRESULT f_utime (
 /* Get Volume Label                                                      */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_getlabel (
+__root FRESULT f_getlabel (
 	const TCHAR* path,	/* Path name of the logical drive number */
 	TCHAR* label,		/* Pointer to a buffer to return the volume label */
 	DWORD* vsn			/* Pointer to a variable to return the volume serial number */
@@ -4875,7 +4875,7 @@ FRESULT f_getlabel (
 /* Set Volume Label                                                      */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_setlabel (
+__root FRESULT f_setlabel (
 	const TCHAR* label	/* Pointer to the volume label to set */
 )
 {
@@ -5002,7 +5002,7 @@ FRESULT f_setlabel (
 /* Allocate a Contiguous Blocks to the File                              */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_expand (
+__root FRESULT f_expand (
 	FIL* fp,		/* Pointer to the file object */
 	FSIZE_t fsz,	/* File size to be expanded to */
 	BYTE opt		/* Operation mode 0:Find and prepare or 1:Find and allocate */
@@ -5087,7 +5087,7 @@ FRESULT f_expand (
 /*-----------------------------------------------------------------------*/
 #if _USE_FORWARD && _FS_TINY
 
-FRESULT f_forward (
+__root FRESULT f_forward (
 	FIL* fp, 						/* Pointer to the file object */
 	UINT (*func)(const BYTE*,UINT),	/* Pointer to the streaming function */
 	UINT btf,						/* Number of bytes to forward */
@@ -5148,7 +5148,7 @@ FRESULT f_forward (
 #define N_FATS		1		/* Number of FATs (1 or 2) */
 
 
-FRESULT f_mkfs (
+__root FRESULT f_mkfs (
 	const TCHAR* path,	/* Logical drive number */
 	BYTE sfd,			/* Partitioning rule 0:FDISK, 1:SFD */
 	UINT au				/* Size of allocation unit in unit of byte or sector */
@@ -5404,7 +5404,7 @@ FRESULT f_mkfs (
 /* Create partition table on the physical drive                          */
 /*-----------------------------------------------------------------------*/
 
-FRESULT f_fdisk (
+__root FRESULT f_fdisk (
 	BYTE pdrv,			/* Physical drive number */
 	const DWORD szt[],	/* Pointer to the size table for each partitions */
 	void* work			/* Pointer to the working buffer */
@@ -5477,7 +5477,7 @@ FRESULT f_fdisk (
 /* Get a string from the file                                            */
 /*-----------------------------------------------------------------------*/
 
-TCHAR* f_gets (
+__root TCHAR* f_gets (
 	TCHAR* buff,	/* Pointer to the string buffer to read */
 	int len,		/* Size of string buffer (characters) */
 	FIL* fp			/* Pointer to the file object */
@@ -5620,7 +5620,7 @@ void putc_bfd (
 
 
 
-int f_putc (
+__root int f_putc (
 	TCHAR c,	/* A character to be output */
 	FIL* fp		/* Pointer to the file object */
 )
@@ -5647,7 +5647,7 @@ int f_putc (
 /* Put a string to the file                                              */
 /*-----------------------------------------------------------------------*/
 
-int f_puts (
+__root int f_puts (
 	const TCHAR* str,	/* Pointer to the string to be output */
 	FIL* fp				/* Pointer to the file object */
 )
@@ -5675,7 +5675,7 @@ int f_puts (
 /* Put a formatted string to the file                                    */
 /*-----------------------------------------------------------------------*/
 
-int f_printf (
+__root int f_printf (
 	FIL* fp,			/* Pointer to the file object */
 	const TCHAR* fmt,	/* Pointer to the format string */
 	...					/* Optional arguments... */

@@ -1,5 +1,8 @@
 CPPFLAGS=-I.
 CFLAGS+=-masset
+ifdef GARBAGE_COLLECTION
+	CFLAGS+=-ffunction-sections -Wl,--gc-sections
+endif
 
 VPATH = src:src/runtime
 OBJS = obj/test1.o obj/test2.o obj/runtime.o
