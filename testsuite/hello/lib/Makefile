@@ -9,14 +9,11 @@ OBJS = obj/hello.o obj/runtime.o
 
 all: lib$(LIB).a
 
-lib$(LIB).a: obj/$(LIB)_veneer.o obj/$(LIB)AsObj.o
+lib$(LIB).a: obj/$(LIB)AsObj.o
 	$(AR) -rc $@ $^
 
-obj/$(LIB)_veneer.o: src/veneer.S
-	$(CC) -DIMPL=impl_$(LIB) $^ -c -o $@
-
 obj/$(LIB)AsObj.o: obj/$(LIB)Enc.elf
-	exe2obj --prefix impl_$(LIB) $^ $@; true
+	exe2obj --stub --prefix impl_$(LIB) $^ $@; true
 
 obj/$(LIB)Enc.elf: obj/$(LIB).elf
 	cp $^ $@
