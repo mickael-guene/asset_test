@@ -14,7 +14,7 @@ SECTIONS
   .text             :
     {
         *(.text)
-        *(*code)
+        *(*code_asset)
     } > flash
   .rodata           :
     {
@@ -42,7 +42,7 @@ SECTIONS
         KEEP (*(.fini_array ))
         KEEP (*(.jcr))
         *(.data*)
-        *(*data)
+        *(*data_asset)
         __data_end__ = .;
     } > sram AT > flash
   __bss_start__ = .;
